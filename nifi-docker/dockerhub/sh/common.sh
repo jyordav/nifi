@@ -29,6 +29,13 @@ uncomment() {
 	sed -i -e "s|^\#$1|$1|" ${target_file}
 }
 
+add_swarm_interfaces() {
+  target_file=${3:-${nifi_props_file}}
+  echo "nifi.web.http.network.interface.eth0=eth0" >> ${target_file}
+  echo "nifi.web.http.network.interface.eth1=eth1" >> ${target_file}
+  echo "nifi.web.http.network.interface.eth2=eth2" >> ${target_file}
+}
+
 # NIFI_HOME is defined by an ENV command in the backing Dockerfile
 export nifi_bootstrap_file=${NIFI_HOME}/conf/bootstrap.conf
 export nifi_props_file=${NIFI_HOME}/conf/nifi.properties

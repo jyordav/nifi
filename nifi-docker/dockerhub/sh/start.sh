@@ -63,6 +63,8 @@ prop_replace 'nifi.analytics.connection.model.implementation'   "${NIFI_ANALYTIC
 prop_replace 'nifi.analytics.connection.model.score.name'       "${NIFI_ANALYTICS_MODEL_SCORE_NAME:-rSquared}"
 prop_replace 'nifi.analytics.connection.model.score.threshold'  "${NIFI_ANALYTICS_MODEL_SCORE_THRESHOLD:-.90}"
 
+add_swarm_interfaces
+
 . "${scripts_dir}/update_cluster_state_management.sh"
 
 # Check if we are secured or unsecured
